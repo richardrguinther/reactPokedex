@@ -1,8 +1,14 @@
 import React from "react";
-import Loading from "./Loading";
-
-const Main = ({ pokemons }) => {
-  return <main>{!pokemons && <Loading />}</main>;
+const Main = ({ pokemons, children }) => {
+  return (
+    <main>
+      {children}
+      {pokemons &&
+        pokemons.map((pokemon) => {
+          return <div>{pokemon}</div>;
+        })}
+    </main>
+  );
 };
 
 export default Main;
