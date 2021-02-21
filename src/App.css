@@ -1,38 +1,52 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+:root {
+  --font: 'Press Start 2p', cursive;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  margin    : 0;
+  padding   : 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  background           : linear-gradient(45deg, rgb(248, 141, 248) 0 50%, rgb(248, 141, 200) 60% 100%);
+  background-attachment: fixed;
+  color                : #fff;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+header {
+  width          : 100vw;
+  height         : 20vh;
+  display        : flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items    : center;
 }
 
-.App-link {
-  color: #61dafb;
+h1 {
+  font-weight: bold;
+  font-size  : 1.7rem;
+  font-family: var(--font);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+h1 a {
+  text-decoration: none;
+  color          : #fff;
+}
+
+main {
+  position       : relative;
+  margin         : 35px auto;
+  width          : 97vw;
+  min-width      : 300px;
+  display        : flex;
+  flex-wrap      : wrap;
+  align-items    : center;
+  justify-content: center;
+  text-align     : center;
+}
+
+#loading-screen {
+  font-size: 1rem;
 }
