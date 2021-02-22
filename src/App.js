@@ -4,15 +4,23 @@ import React from "react";
 import Main from "./Components/Main";
 import Loading from "./Components/Loading";
 import Pokemon from "./Components/Pokemon";
-
 function App() {
   const [pokemons, setPokemons] = React.useState(Array(150).fill());
   const [loading, setLoading] = React.useState(true);
   const getPokemonURL = (id) => `https://pokeapi.co/api/v2/pokemon/${id}`;
 
-  async function fetchPokemons(id) {
-    return await fetch(getPokemonURL(id)).then((response) => response.json());
-  }
+  const fetchPokemons = (id) =>
+    fetch(getPokemonURL(id)).then((response) => response.json());
+
+  const getPokemonInfo = async (promises) => {
+    return await Promise.allSettled(promises)
+      .then((response) =>
+        response.filter((toFilter) => toFilter.status === "fulfilled")
+      )
+      .then((fetchedPromises) =>
+        fetchedPromises.map((pokemonPromise) => pokemonPromise.value)
+      );
+  };
 
   React.useEffect(() => {
     const getPromises = () => {
@@ -22,11 +30,12 @@ function App() {
       return promises;
     };
 
-    Promise.all(getPromises()).then((response) => {
-      setPokemons(response);
+    getPokemonInfo(getPromises()).then((pokemonArray) => {
+      console.log(pokemonArray[0]);
+      setPokemons(pokemonArray);
       setLoading(false);
     });
-  }, []);
+  }, []); // We set an empty array of dependecies, so the code run only when the application is started
 
   return (
     <>

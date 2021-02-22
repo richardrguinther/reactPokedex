@@ -8,6 +8,7 @@
   margin    : 0;
   padding   : 0;
   box-sizing: border-box;
+  font      : var(--font);
 }
 
 body {
@@ -48,12 +49,76 @@ main {
 }
 
 .card {
-  height: 300px;
-  width : 200px;
+  height       : 300px;
+  width        : 200px;
+  margin       : 12px;
+  border-radius: 5px;
+  border       : 2px solid #777;
+  font-weight  : bold;
+  list-style   : 1.2rem;
+  padding      : 15px 5px;
+  cursor       : pointer;
+  transition   : transform 0.2s ease-in;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.card-subtitle {
+  margin-top : 15px;
+  font-weight: normal;
+}
+
+.grass,
+.bug {
+  background-color: lightgreen;
+  color           : #000;
+}
+
+.fire,
+.dragon {
+  background-color: rgb(200, 50, 50);
+}
+
+.normal {
+  background-color: #fff;
+  color           : #000;
+}
+
+.electric {
+  background-color: gold
+}
+
+.water,
+.ice {
+  background-color: lightblue;
+}
+
+.poison,
+.psychic,
+.ghost {
+  background-color: purple;
+}
+
+.rock {
+  background-color: darkgray;
+}
+
+.fighting {
+  background-color: orange;
+}
+
+.ground {
+  background-color: rgba(133, 50, 50, 0.63);
 }
 
 .card-title::first-letter {
   text-transform: uppercase;
+}
+
+.fairy {
+  background-color: rgb(214, 42, 177)
 }
 
 #loading-screen {
