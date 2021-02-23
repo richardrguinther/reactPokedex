@@ -50,7 +50,7 @@ main {
 
 .card {
   height       : 300px;
-  width        : 200px;
+  width        : 300px;
   margin       : 12px;
   border-radius: 5px;
   border       : 2px solid #777;
@@ -61,6 +61,13 @@ main {
   transition   : transform 0.2s ease-in;
 }
 
+.card-image {
+  background: #fff;
+  background-size: 100%;
+  background-color: #fff;
+  border-radius: 50%;
+}
+
 .card:hover {
   transform: translateY(-10px);
 }
@@ -68,6 +75,19 @@ main {
 .card-subtitle {
   margin-top : 15px;
   font-weight: normal;
+}
+
+.abilities {
+  margin-top: 10px;
+}
+
+.abilities li {
+  list-style: none;
+  margin-top: 2px;
+}
+
+.abilities li::first-letter {
+  text-transform: uppercase;
 }
 
 .grass,
